@@ -1,0 +1,46 @@
+<script type="text/ng-template" id="my_modal_content.html">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h2 class="modal-title">Modal Window Form</h2>
+    </div>
+
+    <form name="colorOptions">
+        <div class="modal-body" style="overflow-y:scroll; max-height:400px">
+            <div class="form-group">
+                <label for="color">Color</label>
+                <select ng-model="color" id="color" class="form-control">
+                    <option ng-repeat="c in colors" >{{c}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="quantity">How many</label>
+                <input type="text" ng-model="quantity" id="quantity" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>
+                    <input ng-model="favorite" type="checkbox"> This is my favorite color
+                </label>
+            </div>
+        </div>
+
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary" ng-click="ok()">OK</button>
+
+        </div>
+    </form>
+
+</script>
+
+<div class="panel panel-default">
+    <div class="panel-heading">Modal from embedded template</div>
+    <div class="panel-body">
+        <div>
+            <button class="btn btn-default" ng-click="openUrl('my_modal_content.html')">Open me!</button>
+            <div ng-show="selected != null">Form values: {{ selected }}</div>
+        </div>
+    </div>
+</div>
+
+
